@@ -1,8 +1,7 @@
 <template>
   <v-app>
-	<v-navigation-drawer temporary v-model="sideNav" fixed width="200" app>
+	<v-navigation-drawer temporary v-model="sideNav" fixed width="300" app>
 	 <v-list class="pt-0" dense>
-      <v-divider></v-divider>
 	   <v-list-tile v-for="item in menuItems" :key="item.title" @click="" router :to="item.link">
 	    <v-list-tile-action>
 		 <v-icon>{{ item.icon }}</v-icon>
@@ -29,9 +28,6 @@
 	<main>
 	 <router-view/>
 	</main>
-    <v-footer fixed="false" app>
-      <span>Minden jog fenntartva &copy; 2018</span>
-    </v-footer>
   </v-app>
 </template>
 

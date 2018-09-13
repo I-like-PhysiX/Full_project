@@ -56,6 +56,21 @@
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
+              <h4>Choose a Data & Time</h4>
+            </v-flex>
+          </v-layout>
+          <v-layout row class="mb-2">
+            <v-flex xs12 sm6 offset-sm3>
+              <v-date-picker v-model="date" locale="hun"></v-date-picker>
+            </v-flex>
+          </v-layout>
+          <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
+              <v-time-picker v-model="time" format="24hr"></v-time-picker>
+            </v-flex>
+          </v-layout>
+          <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
               <v-btn
                 class="primary"
                 :disabled="!formIsValid"
@@ -75,7 +90,9 @@
         title: '',
         location: '',
         imageUrl: '',
-        description: ''
+        description: '',
+        date: new Date().toISOString().slice(0,10),
+        time: new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3")
       }
     },
     computed: {
@@ -84,7 +101,13 @@
           this.location !== '' &&
           this.imageUrl !== '' &&
           this.description !== ''
-      }
+      },
+      submittableDateTime(){
+        let currentdate=new Date(this.date)
+        currentdate.setHours(Number(this.time.split(":")[0]))
+        currentdate.setMinutes(Number(this.time.split(":")[1]))
+        return currentdate
+      },
     },
     methods: {
       onCreateMeetup () {

@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import {store} from './store'
 import {
   Vuetify,
   VApp,
@@ -14,7 +15,11 @@ import {
   VGrid,
   VToolbar,
   transitions,
-  VCarousel
+  VCarousel,
+  VDivider,
+  VJumbotron,
+  VCard,
+  VTextField
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
 
@@ -29,7 +34,11 @@ Vue.use(Vuetify, {
     VGrid,
     VToolbar,
     transitions,
-    VCarousel
+    VCarousel,
+	VDivider,
+	VJumbotron,
+	VCard,
+	VTextField
   },
   theme: {
     primary: '#ee44aa',
@@ -48,6 +57,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

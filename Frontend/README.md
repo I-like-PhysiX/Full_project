@@ -1,4 +1,4 @@
-# full_project
+# full_project frontend
 
 > A Vue.js project
 
@@ -6,7 +6,16 @@
 
 ``` bash
 # install dependencies
-npm install
+npm install -g vue-cli
+vue init vuetifyjs/webpack full_project
+-> Runtime + Compiler
+Install vue-router? Y
+Use ESLint to lint your code? Y
+-> Standard
+cd full_project
+npm install --save vuex
+
+# copy the necessary code to the right place
 
 # serve with hot reload at localhost:8080
 npm run dev

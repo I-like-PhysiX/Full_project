@@ -17,7 +17,7 @@
             :key="meetup.id"
 			@click="onLoadMeetup(meetup.id)">
             <v-jumbotron>
-             <h3 class="display-3 white--text">{{ meetup.title }}</h3>
+             <h3 class="display-3 white--text">{{ meetup.title }}</h3> 
             </v-jumbotron>
           </v-carousel-item>
         </v-carousel>
@@ -35,7 +35,7 @@
 export default {
   data () {
     return {
-
+      
     }
   },
   methods: {

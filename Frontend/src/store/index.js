@@ -10,7 +10,7 @@ export const store = new Vuex.Store({
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg',
         id: 'afajfjadfaadfa323',
         title: 'Meetup in New York',
-        date: new Date(),
+        date: new Date().toLocaleString('en-GB', { timeZone: 'CET' }),
         location: 'New York',
         description: 'New York, New York!'
       },
@@ -18,7 +18,7 @@ export const store = new Vuex.Store({
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Paris_-_Blick_vom_gro%C3%9Fen_Triumphbogen.jpg',
         id: 'aadsfhbkhlk1241',
         title: 'Meetup in Paris',
-        date: new Date(),
+        date: new Date().toLocaleString('en-GB', { timeZone: 'CET' }),
         location: 'Paris',
         description: 'It\'s Paris!'
       }

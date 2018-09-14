@@ -92,7 +92,7 @@
         imageUrl: '',
         description: '',
         date: new Date().toISOString().slice(0,10),
-        time: new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3")
+        time: new Date().toLocaleTimeString().slice(0,5)
       }
     },
     computed: {
@@ -106,7 +106,8 @@
         let currentdate=new Date(this.date)
         currentdate.setHours(Number(this.time.split(":")[0]))
         currentdate.setMinutes(Number(this.time.split(":")[1]))
-        return currentdate.toLocaleString('en-GB', { timeZone: 'CET' })
+        currentdate.setSeconds(new Date().getSeconds())
+        return currentdate.toLocaleString()
       },
     },
     methods: {

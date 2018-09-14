@@ -61,7 +61,7 @@
           </v-layout>
           <v-layout row class="mb-2">
             <v-flex xs12 sm6 offset-sm3>
-              <v-date-picker v-model="date" locale="hun"></v-date-picker>
+              <v-date-picker v-model="date" :min="new Date().toISOString().slice(0,10)"></v-date-picker>
             </v-flex>
           </v-layout>
           <v-layout row>

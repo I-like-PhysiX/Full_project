@@ -106,7 +106,7 @@
         let currentdate=new Date(this.date)
         currentdate.setHours(Number(this.time.split(":")[0]))
         currentdate.setMinutes(Number(this.time.split(":")[1]))
-        return currentdate
+        return currentdate.toLocaleString('en-GB', { timeZone: 'CET' })
       },
     },
     methods: {
@@ -119,7 +119,7 @@
           location: this.location,
           imageUrl: this.imageUrl,
           description: this.description,
-          date: new Date()
+          date: this.submittableDateTime
         }
         this.$store.dispatch('createMeetup', meetupData)
         this.$router.push('/meetups')

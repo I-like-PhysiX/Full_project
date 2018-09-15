@@ -14,6 +14,7 @@ Use ESLint to lint your code? Y
 -> Standard
 cd full_project
 npm install --save vuex
+npm install --save firebase
 
 # copy the necessary code to the right place
 

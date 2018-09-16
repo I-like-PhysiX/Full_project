@@ -8,7 +8,17 @@
         <v-btn large router to="/meetup/new" class="info">Organize Meetup</v-btn>
       </v-flex>
     </v-layout>
-    <v-layout row wrap class="mt-2">
+    <v-layout>
+       <v-flex xs12 class="text-xs-center">
+         <v-progress-circular
+           indeterminate
+           class="primary--text"
+           :width="7"
+           :size="70"
+           v-if="loading"></v-progress-circular>
+       </v-flex>
+     </v-layout>
+    <v-layout row wrap class="mt-2" v-if="!loading">
       <v-flex xs12>
         <v-carousel style="cursor: pointer;">
           <v-carousel-item
@@ -16,9 +26,7 @@
             :src="meetup.imageUrl"
             :key="meetup.id"
 			@click="onLoadMeetup(meetup.id)">
-            <v-jumbotron>
-             <h3 class="display-3 white--text">{{ meetup.title }}</h3> 
-            </v-jumbotron>
+      <div class="title">{{ meetup.title }}</div>
           </v-carousel-item>
         </v-carousel>
       </v-flex>
@@ -35,18 +43,32 @@
 export default {
   data () {
     return {
-      
+
     }
   },
   methods: {
 	onLoadMeetup(id){
-		this.$router.push('/meetups' + id);
+		this.$router.push('/meetups/' + id);
 	}
   },
   computed: {
 	meetups(){
 	return this.$store.getters.featuredMeetups;
-	}
+},
+  loading () {
+    return this.$store.getters.loading
+      }
   }
 }
 </script>
+
+<style scoped>
+  .title {
+    position: absolute;
+    bottom: 50px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 2em;
+    padding: 20px;
+  }
+</style>

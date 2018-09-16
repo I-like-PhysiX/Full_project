@@ -8,10 +8,12 @@ import 'vuetify/dist/vuetify.min.css'
 import {store} from './store'
 import * as firebase from 'firebase'
 import AlertCmp from './components/Shared/Alert.vue'
+import EditMeetupDetailsDialog from './components/Meetup/Edit/EditMeetupDetailsDialog.vue'
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
 Vue.component('app-alert', AlertCmp)
+Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)
 
 /* eslint-disable no-new */
 new Vue({
@@ -26,7 +28,13 @@ new Vue({
       authDomain: 'full-project-e823c.firebaseapp.com',
       databaseURL: 'https://full-project-e823c.firebaseio.com',
       projectId: 'full-project-e823c',
-      storageBucket: 'full-project-e823c.appspot.com',
+      storageBucket: '',
     })
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('autoSignIn', user)
+      }
+    })
+    this.$store.dispatch('loadMeetups')
   }
 })

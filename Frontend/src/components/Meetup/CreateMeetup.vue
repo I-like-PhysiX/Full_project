@@ -92,7 +92,7 @@
         imageUrl: '',
         description: '',
         date: new Date().toISOString().slice(0,10),
-        time: new Date().toLocaleTimeString().slice(0,5)
+        time: new Date().toTimeString().split(" ")[0].slice(0,5)
       }
     },
     computed: {

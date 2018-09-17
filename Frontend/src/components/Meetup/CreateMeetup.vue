@@ -1,3 +1,4 @@
+
 <template>
   <v-container>
     <v-layout row>
@@ -107,7 +108,7 @@
         currentdate.setHours(Number(this.time.split(":")[0]))
         currentdate.setMinutes(Number(this.time.split(":")[1]))
         currentdate.setSeconds(new Date().getSeconds())
-        return currentdate.toLocaleString()
+        return currentdate.toString()
       },
     },
     methods: {

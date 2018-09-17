@@ -20,6 +20,12 @@
                 id="title"
                 v-model="editedTitle"
                 required></v-text-field>
+                <v-text-field
+                  name="URL"
+                  label="URL"
+                  id="url"
+                  v-model="editedURL"
+                  required></v-text-field>
               <v-text-field
                 name="description"
                 label="Description"
@@ -54,18 +60,20 @@
       return {
         editDialog: false,
         editedTitle: this.meetup.title,
+        editedURL: this.meetup.imageUrl,
         editedDescription: this.meetup.description
       }
     },
     methods: {
       onSaveChanges () {
-        if (this.editedTitle.trim() === '' || this.editedDescription.trim() === '') {
+        if (this.editedTitle.trim() === '' || this.editedDescription.trim() === '' || this.editedURL.trim() === '') {
           return
         }
         this.editDialog = false
         this.$store.dispatch('updateMeetupData', {
           id: this.meetup.id,
           title: this.editedTitle,
+          imageUrl: this.editedURL,
           description: this.editedDescription
         })
       }

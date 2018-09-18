@@ -7,10 +7,11 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
-      /*{
+      /*
+      {
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg',
         id: 'afajfjadfaadfa323',
-        title: 'Meetup in New York original',
+        title: 'Meetup in New York',
         date: new Date().toLocaleString(),
         location: 'New York',
         description: 'New York, New York!'
@@ -18,11 +19,12 @@ export const store = new Vuex.Store({
       {
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Paris_-_Blick_vom_gro%C3%9Fen_Triumphbogen.jpg',
         id: 'aadsfhbkhlk1241',
-        title: 'Meetup in Paris original',
+        title: 'Meetup in Paris',
         date: new Date().toLocaleString(),
         location: 'Paris',
-        description: 'It\'s Paris!'
-      }*/
+        description: 'It's Paris!'
+      }
+      */
     ],
     user: null,
     loading: false,
@@ -140,7 +142,7 @@ export const store = new Vuex.Store({
         title: payload.title,
         location: payload.location,
         description: payload.description,
-        date: payload.date,
+        date: payload.date.toISOString(),
         creatorId: getters.user.id
       }
       let imageUrl

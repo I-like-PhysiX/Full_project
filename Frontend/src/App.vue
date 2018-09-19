@@ -23,7 +23,7 @@
     <v-toolbar dark class="red darken-1">
 	  <v-toolbar-side-icon @click.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
 	   <v-toolbar-title>
-	    <router-link to="/" tag="span" style="cursor: pointer">DevMeetup</router-link>
+	    <router-link to="/" tag="span" style="cursor: pointer">Main</router-link>
 	   </v-toolbar-title>
 	   <v-divider></v-divider>
 	   <v-toolbar-items class="hidden-xs-only">
@@ -42,11 +42,22 @@
 	  </v-toolbar-items>
      </v-toolbar>
 	<main>
-	 <router-view/>
+	 <router-view style="margin-bottom: 100px;"/>
 	</main>
-	<v-footer color="indigo" app>
-	 <span class="white--text">Minden jog fenntartva &copy; 2018</span>
-    </v-footer>
+  <v-footer dark height="auto" app>
+    <v-card class="flex" flat tile>
+      <v-card-title class="indigo lighten-1">
+        <strong class="subheading">Get connected with us on social networks!</strong>
+        <v-spacer></v-spacer>
+        <v-btn v-for="icon in icons" :key="icon" class="mx-3" dark icon>
+          <v-icon size="24px">{{ icon }}</v-icon>
+        </v-btn>
+      </v-card-title>
+      <v-card-actions class="grey darken-3 justify-center">
+        &copy;2018 — <strong>All rights reserved!</strong>
+      </v-card-actions>
+    </v-card>
+  </v-footer>
   </v-app>
 </template>
 
@@ -55,7 +66,14 @@ export default {
   name: 'App',
   data () {
     return {
-      sideNav: false
+      sideNav: false,
+      icons: [
+          'fab fa-facebook',
+          'fab fa-twitter',
+          'fab fa-google-plus',
+          'fab fa-linkedin',
+          'fab fa-instagram'
+        ]
     }
   },
   computed: {
@@ -66,8 +84,6 @@ export default {
         ]
         if (this.userIsAuthenticated) {
           menuItems = [
-            {icon: 'supervisor_account', title: 'View Meetups', link: '/meetups'},
-            {icon: 'room', title: 'Organize Meetup', link: '/meetup/new'},
             {icon: 'person', title: 'Profile', link: '/profile'}
           ]
         }

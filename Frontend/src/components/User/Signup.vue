@@ -15,7 +15,7 @@
                   <v-flex xs12>
                     <v-text-field
                       name="email"
-                      label="Mail"
+                      label="Email"
                       id="email"
                       v-model="email"
                       type="email"
@@ -47,7 +47,7 @@
                 <v-layout row>
                   <v-flex xs12>
                     <v-btn type="submit" :disabled="loading" :loading="loading">
-                      Sign up
+                      Regisztráció
                        <span slot="loader" class="custom-loader">
                         <v-icon light>cached</v-icon>
                        </span>
@@ -74,7 +74,7 @@
     },
     computed: {
       comparePasswords () {
-        return this.password !== this.confirmPassword ? 'Passwords do not match' : ''
+        return this.password !== this.confirmPassword ? 'invalid password' : ''
       },
       user () {
         return this.$store.getters.user

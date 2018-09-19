@@ -13,6 +13,7 @@ Install vue-router? Y
 Use ESLint to lint your code? Y
 -> Standard
 cd full_project
+npm install @fortawesome/fontawesome-free -D
 npm install --save vuex
 npm install --save firebase
 

@@ -15,7 +15,7 @@
         <v-card>
           <v-card-title>
             <h3 class="primary--text">{{ meetup.title }}</h3>
-            <template v-if="userIsCreator">
+            <template v-if="userIsAuthenticated">
               <v-spacer></v-spacer>
               <app-edit-meetup-details-dialog :meetup="meetup"></app-edit-meetup-details-dialog>
             </template>
@@ -26,21 +26,13 @@
           ></v-card-media>
           <v-card-text>
             <div class="info--text">{{ meetup.date }} - {{ meetup.location }}</div>
-            <div>
-              <app-edit-meetup-date-dialog
-                :meetup="meetup" v-if="userIsCreator">
-              </app-edit-meetup-date-dialog>
-              <app-edit-meetup-time-dialog
-                :meetup="meetup" v-if="userIsCreator">
-              </app-edit-meetup-time-dialog>
-            </div>
             <div>{{ meetup.description }}</div>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
             <app-meetup-register-dialog
               :meetupId="meetup.id"
-              v-if="userIsAuthenticated && !userIsCreator"></app-meetup-register-dialog>
+              v-if="userIsAuthenticated"></app-meetup-register-dialog>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -57,12 +49,6 @@
       },
       userIsAuthenticated () {
         return this.$store.getters.user !== null && this.$store.getters.user !== undefined
-      },
-      userIsCreator () {
-        if (!this.userIsAuthenticated) {
-          return false
-        }
-        return this.$store.getters.user.id === this.meetup.creatorId
       },
       loading () {
         return this.$store.getters.loading

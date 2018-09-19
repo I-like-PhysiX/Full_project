@@ -57,6 +57,12 @@ export const store = new Vuex.Store({
       if (payload.title) {
         meetup.title = payload.title
       }
+      if (payload.imageUrl) {
+        meetup.imageUrl = payload.imageUrl
+      }
+      if (payload.location) {
+        meetup.location = payload.location
+      }
       if (payload.description) {
         meetup.description = payload.description
       }
@@ -123,8 +129,7 @@ export const store = new Vuex.Store({
               description: obj[key].description,
               imageUrl: obj[key].imageUrl,
               date: obj[key].date,
-              location: obj[key].location,
-              creatorId: obj[key].creatorId
+              location: obj[key].location
             })
           }
           commit('setLoadedMeetups', meetups)
@@ -142,8 +147,7 @@ export const store = new Vuex.Store({
         title: payload.title,
         location: payload.location,
         description: payload.description,
-        date: payload.date.toISOString(),
-        creatorId: getters.user.id
+        date: payload.date.toISOString()
       }
       let imageUrl
       let key
@@ -178,6 +182,12 @@ export const store = new Vuex.Store({
       const updateObj = {}
       if (payload.title) {
         updateObj.title = payload.title
+      }
+      if (payload.location) {
+        updateObj.location = payload.location
+      }
+      if (payload.imageUrl) {
+        updateObj.imageUrl = payload.imageUrl
       }
       if (payload.description) {
         updateObj.description = payload.description

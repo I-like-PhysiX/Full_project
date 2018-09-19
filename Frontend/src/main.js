@@ -5,13 +5,16 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import '@fortawesome/fontawesome-free/css/all.css' // Ensure you are using css-loader
 import {store} from './store'
 import * as firebase from 'firebase'
 import AlertCmp from './components/Shared/Alert.vue'
 import EditMeetupDetailsDialog from './components/Meetup/Edit/EditMeetupDetailsDialog.vue'
 import RegisterDialog from './components/Meetup/Registration/RegisterDialog.vue'
 
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+ iconfont: 'fa'
+})
 Vue.config.productionTip = false
 Vue.component('app-alert', AlertCmp)
 Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)

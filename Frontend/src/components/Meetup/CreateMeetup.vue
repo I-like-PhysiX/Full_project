@@ -2,13 +2,13 @@
 <template>
   <v-container>
     <v-layout row>
-      <v-flex xs12 sm6 offset-sm3>
-        <h4>Create a new Meetup</h4>
-      </v-flex>
-    </v-layout>
-    <v-layout row>
       <v-flex xs12>
         <form @submit.prevent="onCreateMeetup">
+          <v-layout row my-5>
+            <v-flex xs12 sm6 offset-sm3>
+              <h2>Create new meetup</h2>
+            </v-flex>
+          </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-text-field
@@ -47,7 +47,7 @@
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-text-field
-                name="description"
+                name="Leírás"
                 label="Description"
                 id="description"
                 multi-line
@@ -56,26 +56,27 @@
             </v-flex>
           </v-layout>
           <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
-              <h4>Choose a Data & Time</h4>
+            <v-flex xs12 sm6 offset-sm2 mt-5>
+              <h3>Date</h3>
             </v-flex>
-          </v-layout>
-          <v-layout row class="mb-2">
-            <v-flex xs12 sm6 offset-sm3>
-              <v-date-picker v-model="date" :min="new Date().toISOString().slice(0,10)"></v-date-picker>
+            <v-flex xs12 sm6 offset-sm0 mt-5>
+              <h3>Time</h3>
             </v-flex>
           </v-layout>
           <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
+            <v-flex xs12 sm6 offset-sm2>
+              <v-date-picker v-model="date" :min="new Date().toISOString().slice(0,10)"></v-date-picker>
+            </v-flex>
+            <v-flex xs12 sm6 offset-sm0>
               <v-time-picker v-model="time" format="24hr"></v-time-picker>
             </v-flex>
           </v-layout>
-          <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
+          <v-layout row my-5>
+            <v-flex xs12 sm6 offset-sm5>
               <v-btn
-                class="primary"
+                color="error"
                 :disabled="!formIsValid"
-                type="submit">Create Meetup</v-btn>
+                type="submit">Create new meetup</v-btn>
             </v-flex>
           </v-layout>
         </form>

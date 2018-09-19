@@ -21,6 +21,12 @@
                 v-model="editedTitle"
                 required></v-text-field>
                 <v-text-field
+                  name="location"
+                  label="Location"
+                  id="location"
+                  v-model="editedLocation"
+                  required></v-text-field>
+                <v-text-field
                   name="URL"
                   label="URL"
                   id="url"
@@ -61,6 +67,7 @@
         editDialog: false,
         editedTitle: this.meetup.title,
         editedURL: this.meetup.imageUrl,
+        editedLocation: this.meetup.location,
         editedDescription: this.meetup.description
       }
     },
@@ -74,6 +81,7 @@
           id: this.meetup.id,
           title: this.editedTitle,
           imageUrl: this.editedURL,
+          location: this.editedLocation,
           description: this.editedDescription
         })
       }

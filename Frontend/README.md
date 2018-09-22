@@ -19,7 +19,6 @@ npm install --save firebase
 
 # copy the necessary code to the right place
 
-# serve with hot reload at localhost:8080
 npm run dev
 
 # build for production with minification
